@@ -5,32 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirk’s Elite Karate Club | St. Thomas, ON</title>
     <style>
-        :root { --primary: #1a1a1a; --accent: #d32f2f; --bg: #fdfdfd; --card: #ffffff; }
+        :root { --primary: #1a1a1a; --accent: #d32f2f; --bg: #fdfdfd; }
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: #333; background: var(--bg); line-height: 1.6; }
+        
         #password-gate { position: fixed; inset: 0; background: #111; z-index: 10000; display: flex; justify-content: center; align-items: center; color: white; }
         .gate-box { padding: 40px; border: 2px solid var(--accent); text-align: center; border-radius: 12px; background: #1a1a1a; }
+
         header { background: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
         .main-logo { height: 70px; width: auto; }
+        
         nav a { text-decoration: none; color: #444; font-size: 0.85rem; font-weight: 600; padding: 8px 12px; border-radius: 4px; transition: 0.3s; cursor: pointer; }
         nav a:hover { color: var(--accent); background: #f4f4f4; }
-        
-        .hero-carousel { position: relative; height: 65vh; width: 100%; overflow: hidden; background: #000; }
-        .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+
+        /* CAROUSEL ZOOM FIX */
+        .hero-carousel { position: relative; height: 70vh; width: 100%; overflow: hidden; background: #000; }
+        .slide { 
+            position: absolute; 
+            inset: 0; 
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-size: contain; /* This ensures the whole photo shows, no cropping heads/legs */
+            opacity: 0; 
+            transition: opacity 1.5s ease-in-out; 
+        }
+        /* Optional: adds a blurred version of the photo behind it to fill the black bars on the sides */
+        .slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: inherit;
+            background-size: cover;
+            filter: blur(20px);
+            opacity: 0.3;
+            z-index: -1;
+        }
         .slide.active { opacity: 1; }
-        .hero-overlay { position: absolute; bottom: 10%; left: 5%; z-index: 10; background: rgba(0,0,0,0.75); padding: 25px; border-left: 5px solid var(--accent); color: white; border-radius: 4px; max-width: 500px; }
+        
+        .hero-overlay { position: absolute; bottom: 8%; left: 5%; z-index: 10; background: rgba(0,0,0,0.8); padding: 20px; border-left: 5px solid var(--accent); color: white; border-radius: 4px; max-width: 450px; }
 
         section { padding: 60px 10%; display: none; }
         section.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .photo-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; }
-        .photo-card img, .photo-card video { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; }
-        
-        /* Find Us Section */
-        .parking-note { background: #e8f4fd; border-left: 5px solid #2196f3; padding: 15px; margin: 20px 0; font-size: 0.9rem; }
-        .map-wrapper { border: 1px solid #ddd; border-radius: 12px; overflow: hidden; height: 400px; }
+        .photo-card img { width: 100%; height: auto; border-radius: 4px; }
 
         .btn { background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; display: inline-block; }
         footer { background: #111; color: #777; padding: 40px 10%; text-align: center; font-size: 0.8rem; }
@@ -49,11 +69,12 @@
 
     <header>
         <div class="logo-container">
-            <img src="kirks photo 10.jpg" alt="Kirk's Elite Logo" class="main-logo">
+            <img src="kirks photo 10.jpg" alt="Logo" class="main-logo">
             <div style="font-weight: 800; font-size: 1.2rem;">KIRK’S ELITE <span style="color:var(--accent)">KARATE</span></div>
         </div>
         <nav>
             <a onclick="showP('home')">Home</a>
+            <a onclick="showP('about')">Our Story</a>
             <a onclick="showP('floor')">The Dojo Floor</a>
             <a onclick="showP('skills')">Skills Corner</a>
             <a onclick="showP('contact')">Find Us</a>
@@ -63,74 +84,64 @@
     <div id="main-content">
         <section id="home" class="active" style="padding:0;">
             <div class="hero-carousel">
-                <div class="slide active" style="background-image: url('kirks photo 12.jpg');"></div>
+                <div class="slide active" style="background-image: url('kirks photo 4.jpg');"></div>
                 <div class="slide" style="background-image: url('kirks photo 18.jpg');"></div>
                 <div class="slide" style="background-image: url('kirks photo 5.jpg');"></div>
                 <div class="hero-overlay">
-                    <h1 style="margin:0;">Tradition & Community</h1>
-                    <p>A "Karate Family" grounded in respect and Okinawan lineage.</p>
+                    <h1 style="margin:0; font-size: 1.8rem;">Grounded in Tradition</h1>
+                    <p>A "Karate Family" dedicated to Shorin-Ryu and Jiu-Jitsu in St. Thomas.</p>
                     <button class="btn" onclick="showP('contact')">FREE TRIAL CLASS</button>
                 </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Our Story</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center;">
+                <div>
+                    <p>Founded by Sensei Trevor Kirk, Kirk's Elite Karate Club has been a staple of the St. Thomas community since 2010. We specialize in traditional Okinawan Shorin-Ryu and Jiu-Jitsu.</p>
+                    <p>Our focus is on the "Brave Heart"—building discipline, focus, and respect in every student.</p>
+                </div>
+                <img src="kirks photo 4.jpg" style="width:100%; border-radius:8px;">
             </div>
         </section>
 
         <section id="floor">
             <h2>The Dojo Floor</h2>
             <div class="gallery-grid">
-                <div class="photo-card"><img src="kirks photo 1.jpg"><p>Dojo Family</p></div>
-                <div class="photo-card"><img src="kirks photo 7.jpg"><p>Community Spirit</p></div>
                 <div class="photo-card"><img src="kirks photo 3.jpg"><p>Dojo Interior</p></div>
-                <div class="photo-card"><img src="kirks photo 15.jpg"><p>Focus & Form</p></div>
-                <div class="photo-card"><img src="kirks photo 16.jpg"><p>Traditional Drills</p></div>
-                <div class="photo-card"><img src="kirks photo 8.jpg"><p>Club Events</p></div>
-            </div>
+                <div class="photo-card"><img src="kirks photo 7.jpg"><p>Community & Heart</p></div>
+                <div class="photo-card"><img src="kirks photo 8.jpg"><p>Event Fun</p></div>
+                <div class="photo-card"><img src="kirks photo 12.jpg"><p>Training Focus</p></div>
+                </div>
         </section>
 
         <section id="skills">
             <h2>Skills Corner</h2>
-            <div class="grid">
+            <div class="gallery-grid">
                 <div class="photo-card">
-                    <video controls poster="kirks photo 5.jpg">
+                    <video controls poster="kirks photo 5.jpg" style="width:100%;">
                         <source src="white_belt_kata.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
                     </video>
                     <h3>White Belt Kata</h3>
-                    <p>A reference guide for our newest students to practice their fundamental forms at home.</p>
                 </div>
                 <div class="photo-card">
-                    <img src="kirks photo 2.jpg" alt="Belt Tying">
-                    <h3>How to Tie Your Belt</h3>
-                    <p>Step-by-step imagery on securing your rank with respect.</p>
+                    <img src="kirks photo 2.jpg">
+                    <h3>Belt Tying Guide</h3>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <h2>Find Us in St. Thomas</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
-                <div>
-                    <p><strong>36 St Catharine St, St. Thomas, ON</strong></p>
-                    <p>Located conveniently near downtown St. Thomas, our dojo offers a grounded and accessible environment for all families.</p>
-                    
-                    <div class="parking-note">
-                        <strong>🅿️ Free Parking:</strong> We offer free on-site parking for members, with additional street parking available right in front of the building.
-                    </div>
-                    
-                    <img src="kirks photo 18.jpg" alt="Dojo Building" style="width:100%; border-radius:8px; margin-bottom:15px;">
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=36+St+Catharine+St+St+Thomas+ON" target="_blank" class="btn">GET DIRECTIONS</a>
-                </div>
-                <div class="map-wrapper">
-                    <iframe width="100%" height="100%" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_FREE_KEY_OR_USE_GENERIC&q=36+St+Catharine+St,St+Thomas,ON2"></iframe>
-                </div>
-            </div>
+            <p><strong>36 St Catharine St, St. Thomas, ON</strong></p>
+            <p>Located near downtown with <strong>Free Parking</strong> on-site.</p>
+            <iframe width="100%" height="400" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_FREE_KEY_OR_USE_GENERIC&q=36+St+Catharine+St,St+Thomas,ON3"></iframe>
         </section>
     </div>
 
     <footer>
-        <p>© 2026 Kirk’s Elite Karate Club | Member: Canadian Jiu Jitsu Council</p>
-        <div style="margin-top:10px;">
-            <a href="https://shop.flipgive.com/onboarding/join?fundraiser_name=Alicia&joincode=5C46L6" target="_blank">FlipGive Member Portal</a>
-        </div>
+        <p>© 2026 Kirk’s Elite Karate Club | <a href="https://shop.flipgive.com/onboarding/join?fundraiser_name=Alicia&joincode=5C46L6" target="_blank" style="color:#aaa;">FlipGive Portal</a></p>
     </footer>
 
     <script>
