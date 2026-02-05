@@ -5,44 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirk’s Elite Karate Club | St. Thomas, ON</title>
     <style>
-        :root { --primary: #1a1a1a; --accent: #d32f2f; --sunset: #f39c12; --bg: #fafafa; --card: #ffffff; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: #333; background: var(--bg); overflow-x: hidden; }
+        :root { --primary: #1a1a1a; --accent: #d32f2f; --bg: #f9f9f9; --white: #ffffff; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg); color: #333; }
         
         /* Security Gate */
         #password-gate { position: fixed; inset: 0; background: #111; z-index: 10000; display: flex; justify-content: center; align-items: center; color: white; }
-        .gate-box { padding: 40px; border: 2px solid var(--accent); text-align: center; border-radius: 12px; background: #1a1a1a; box-shadow: 0 0 20px rgba(211, 47, 47, 0.3); }
+        .gate-box { padding: 40px; border: 2px solid var(--accent); text-align: center; border-radius: 12px; background: #1a1a1a; }
         
-        /* Navigation */
-        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
-        .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.3rem; }
-        nav { display: flex; gap: 10px; flex-wrap: wrap; }
+        /* Header & Logo */
+        header { background: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-placeholder { width: 60px; height: 60px; background: #eee; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--accent); font-weight: bold; font-size: 0.7rem; color: #999; }
+        
         nav a { text-decoration: none; color: #444; font-size: 0.85rem; font-weight: 600; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
-        nav a:hover { color: var(--accent); background: #f0f0f0; }
+        nav a:hover { color: var(--accent); }
 
-        /* Slow-Moving Hero Carousel */
-        .hero-carousel { position: relative; height: 70vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        /* Hero Carousel */
+        .hero-carousel { position: relative; height: 60vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
         .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out; }
         .slide.active { opacity: 1; }
-        .hero-overlay { position: relative; z-index: 10; background: rgba(0,0,0,0.5); padding: 40px; border-radius: 15px; border-top: 5px solid var(--accent); max-width: 800px; }
-        .hero-overlay h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .hero-overlay { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent); }
 
-        /* Content Sections */
-        section { padding: 80px 10%; display: none; animation: slideUp 0.6s ease-out; }
-        section.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* Action Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .photo-slot { aspect-ratio: 1/1; background: #ddd; border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-label { position: absolute; bottom: 0; background: rgba(0,0,0,0.5); color: white; width: 100%; font-size: 0.7rem; padding: 5px; text-align: center; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card); padding: 35px; border-radius: 10px; border-bottom: 4px solid #eee; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .card:hover { border-bottom: 4px solid var(--accent); transform: translateY(-5px); }
+        section { padding: 60px 10%; display: none; }
+        section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; display: inline-block; transition: 0.3s; box-shadow: 0 4px 10px rgba(211,47,47,0.3); }
-        .btn:hover { transform: scale(1.05); background: #b71c1c; }
+        .btn { background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #b71c1c; transform: translateY(-2px); }
 
-        footer { background: #111; color: #777; padding: 60px 10% 20px; text-align: center; margin-top: 100px; }
-        footer a { color: #aaa; text-decoration: none; font-weight: bold; margin: 0 15px; }
-        footer a:hover { color: var(--accent); }
-
-        .kanji-watermark { font-size: 8rem; position: absolute; right: 5%; bottom: 5%; opacity: 0.03; font-family: serif; pointer-events: none; }
+        footer { background: #111; color: #777; padding: 40px 10%; text-align: center; font-size: 0.8rem; }
+        footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
@@ -50,133 +48,104 @@
     <div id="password-gate">
         <div class="gate-box">
             <h1 style="margin:0; color:var(--accent)">精空手</h1>
-            <p style="margin-top:0; letter-spacing: 5px;">KIRK’S ELITE</p>
-            <input type="password" id="passInput" placeholder="Access Code" style="padding:12px; margin: 15px 0; width: 220px; border-radius: 5px; border: none;"><br>
-            <button class="btn" onclick="checkPass()">ENTER DOJO</button>
+            <p>Kirk’s Elite Karate | St. Thomas</p>
+            <input type="password" id="passInput" placeholder="Access Code" style="padding:10px; margin: 15px 0;"><br>
+            <button class="btn" onclick="checkPass()">ENTER PORTAL</button>
         </div>
     </div>
 
     <header>
-        <div class="logo-area">
-            <span style="color:var(--accent)">精空手</span> KIRK’S ELITE
+        <div class="logo-container">
+            <div class="logo-placeholder">LOGO HERE</div>
+            <div style="font-weight: 800; font-size: 1.2rem;">KIRK’S ELITE</div>
         </div>
         <nav>
             <a href="#" onclick="showP('home')">Home</a>
-            <a href="#" onclick="showP('about')">About</a>
-            <a href="#" onclick="showP('kids')">Kids</a>
-            <a href="#" onclick="showP('adults')">Adults</a>
+            <a href="#" onclick="showP('gallery')">Action</a>
             <a href="#" onclick="showP('schedule')">Schedule</a>
-            <a href="#" onclick="showP('contact')">Contact</a>
+            <a href="#" onclick="showP('contact')">Find Us</a>
         </nav>
     </header>
 
     <div id="main-content">
-        <section id="home" class="active" style="padding: 0;">
+        <section id="home" class="active" style="padding:0;">
             <div class="hero-carousel">
-                <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=1600');"></div>
-                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&q=80&w=1600');"></div>
-                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=1600');"></div>
+                <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=1600&auto=format&fit=crop');"></div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1600&auto=format&fit=crop');"></div>
                 
                 <div class="hero-overlay">
-                    <h1>Grounded in Tradition</h1>
-                    <p>Building "Brave Hearts" and stronger families in St. Thomas for 15 years.</p>
-                    <button class="btn" onclick="showP('contact')">BOOK A FREE TRIAL</button>
+                    <h1>Grounded in Tradition.</h1>
+                    <p>Training "Brave Hearts" in St. Thomas since 2010.</p>
+                    <button class="btn" onclick="showP('contact')">FREE TRIAL CLASS</button>
                 </div>
             </div>
-
-            <div style="padding: 60px 10%; text-align: center;">
-                <h2 style="border:none; padding:0;">The Elite Standard</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Okinawan Heritage</h3>
-                        <p>Specializing in Shorin-Ryu, focusing on natural stances and fluid movements. A style built for longevity and practical defense.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Sensei Kirk</h3>
-                        <p>Led by Sensei Trevor Kirk with over 20 years of dedication. We are a family-run club where every member counts.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Canadian Jiu Jitsu</h3>
-                        <p>Proudly certified members of the Canadian Jiu Jitsu Council, maintaining national standards for ground defense.</p>
-                    </div>
-                </div>
+            
+            <div style="padding: 40px 10%; text-align: center; background: white;">
+                <h2>Welcome to the Family</h2>
+                <p>Located at 36 St Catharine Street, Kirk's Elite Karate Club is a place for hard work, mutual respect, and traditional Okinawan mastery.</p>
             </div>
         </section>
 
-        <section id="about">
-            <h2>15 Years of Community</h2>
-            <p>Our story began in November 2010. We aren't a high-gloss commercial gym—we are a community dojo located at 36 St Catharine Street.</p>
-            <div class="kanji-watermark">精空手</div>
-        </section>
-
-        <section id="kids">
-            <h2>Elite Kids: Building Brave Hearts</h2>
-            <p>We help children turn focus into achievement. Our classes are designed to build confidence, respect, and discipline while having fun.</p>
-            <button class="btn" onclick="showP('contact')">GET KIDS SCHEDULE</button>
+        <section id="gallery">
+            <h2>Dojo in Action</h2>
+            <p>A look inside our training sessions. Real students, real focus.</p>
+            <div class="gallery-grid">
+                <div class="photo-slot"><span>Upload Photo 1</span><div class="photo-label">Elite Kids Training</div></div>
+                <div class="photo-slot"><span>Upload Photo 2</span><div class="photo-label">Adult Shorin-Ryu</div></div>
+                <div class="photo-slot"><span>Upload Photo 3</span><div class="photo-label">Ground Defense</div></div>
+                <div class="photo-slot"><span>Upload Photo 4</span><div class="photo-label">Sensei Kirk in Action</div></div>
+            </div>
         </section>
 
         <section id="schedule">
-            <h2>Current Schedule</h2>
-            <div class="card">
+            <h2>Current Class Hours</h2>
+            <div style="background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--accent);">
                 <p><strong>Mondays:</strong> 5:30 PM - 6:30 PM (Elite Kids)</p>
-                <hr>
-                <p><strong>Wednesdays:</strong> 5:30 PM - 6:30 PM (Elite Kids) / 6:30 PM - 7:30 PM (Adults)</p>
+                <p><strong>Wednesdays:</strong> 5:30 PM - 6:30 PM (Elite Kids)</p>
+                <p><strong>Wednesdays:</strong> 6:30 PM - 7:30 PM (Adults/Teens)</p>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Join the Family</h2>
-            <div class="grid">
-                <div class="card">
-                    <form name="elite-contact" method="POST" data-netlify="true">
-                        <input type="text" name="name" placeholder="Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd;">
-                        <input type="email" name="email" placeholder="Email" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd;">
-                        <textarea name="msg" placeholder="Tell us about your goals..." style="width:100%; padding:15px; height:120px; border:1px solid #ddd;"></textarea>
-                        <button type="submit" class="btn" style="width:100%">SEND REQUEST</button>
-                    </form>
-                </div>
-                <div style="padding:20px;">
-                    <h3>Location</h3>
-                    <p>36 St Catharine St<br>St. Thomas, ON N5P 2V8</p>
+            <h2>Find Us in St. Thomas</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <p><strong>Address:</strong><br>36 St Catharine St<br>St. Thomas, ON N5P 2V8</p>
                     <p><strong>Phone:</strong> (519) 633-4425</p>
+                    <p><strong>FB Group:</strong> <a href="https://www.facebook.com/groups/169485559738370/" target="_blank">87 Members Strong</a></p>
+                </div>
+                <div style="background: #eee; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <span>[Google Map Placeholder]</span>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <div style="margin-bottom: 20px;">
-            <a href="https://www.facebook.com/groups/169485559738370/" target="_blank">Facebook Member Group</a>
-            <a href="https://shop.flipgive.com/onboarding/join?fundraiser_name=Alicia&joincode=5C46L6" target="_blank">FlipGive Portal</a>
-        </div>
         <p>&copy; 2026 Kirk’s Elite Karate Club | Member: Canadian Jiu Jitsu Council</p>
+        <div style="margin-top: 10px;">
+            <a href="https://shop.flipgive.com/onboarding/join?fundraiser_name=Alicia&joincode=5C46L6" target="_blank">FlipGive Member Portal</a>
+        </div>
     </footer>
 
     <script>
-        // Password Gate
         function checkPass() {
             if (document.getElementById("passInput").value === "ELITE2026") {
                 document.getElementById("password-gate").style.display = "none";
-                startCarousel();
+                setInterval(() => {
+                    const slides = document.querySelectorAll('.slide');
+                    let active = 0;
+                    slides.forEach((s, i) => { if(s.classList.contains('active')) active = i; });
+                    slides[active].classList.remove('active');
+                    slides[(active + 1) % slides.length].classList.add('active');
+                }, 5000);
             } else { alert("Incorrect Code"); }
         }
 
-        // Navigation
         function showP(id) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             window.scrollTo(0,0);
-        }
-
-        // Slow Hero Carousel
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        function startCarousel() {
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 5000); // Fades every 5 seconds
         }
     </script>
 </body>
