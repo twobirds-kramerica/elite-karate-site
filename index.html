@@ -18,31 +18,15 @@
         nav a { text-decoration: none; color: #444; font-size: 0.85rem; font-weight: 600; padding: 8px 12px; border-radius: 4px; transition: 0.3s; cursor: pointer; }
         nav a:hover { color: var(--accent); background: #f4f4f4; }
 
-        /* CAROUSEL ZOOM FIX */
-        .hero-carousel { position: relative; height: 70vh; width: 100%; overflow: hidden; background: #000; }
-        .slide { 
-            position: absolute; 
-            inset: 0; 
-            background-repeat: no-repeat;
-            background-position: center; 
-            background-size: contain; /* This ensures the whole photo shows, no cropping heads/legs */
-            opacity: 0; 
-            transition: opacity 1.5s ease-in-out; 
-        }
-        /* Optional: adds a blurred version of the photo behind it to fill the black bars on the sides */
-        .slide::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: inherit;
-            background-size: cover;
-            filter: blur(20px);
-            opacity: 0.3;
-            z-index: -1;
-        }
+        /* FIXED ZOOM-OUT CAROUSEL */
+        .carousel-container { position: relative; width: 100%; height: 75vh; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; display: flex; align-items: center; justify-content: center; }
         .slide.active { opacity: 1; }
         
-        .hero-overlay { position: absolute; bottom: 8%; left: 5%; z-index: 10; background: rgba(0,0,0,0.8); padding: 20px; border-left: 5px solid var(--accent); color: white; border-radius: 4px; max-width: 450px; }
+        /* This forces the image to be fully visible (zoomed out) */
+        .slide img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+        .hero-overlay { position: absolute; bottom: 5%; left: 5%; z-index: 20; background: rgba(0,0,0,0.8); padding: 20px; border-left: 5px solid var(--accent); color: white; border-radius: 4px; max-width: 400px; }
 
         section { padding: 60px 10%; display: none; }
         section.active { display: block; animation: fadeIn 0.5s ease; }
@@ -74,7 +58,6 @@
         </div>
         <nav>
             <a onclick="showP('home')">Home</a>
-            <a onclick="showP('about')">Our Story</a>
             <a onclick="showP('floor')">The Dojo Floor</a>
             <a onclick="showP('skills')">Skills Corner</a>
             <a onclick="showP('contact')">Find Us</a>
@@ -83,37 +66,27 @@
 
     <div id="main-content">
         <section id="home" class="active" style="padding:0;">
-            <div class="hero-carousel">
-                <div class="slide active" style="background-image: url('kirks photo 4.jpg');"></div>
-                <div class="slide" style="background-image: url('kirks photo 18.jpg');"></div>
-                <div class="slide" style="background-image: url('kirks photo 5.jpg');"></div>
+            <div class="carousel-container">
+                <div class="slide active"><img src="kirks photo 12.jpg" alt="Dojo Action"></div>
+                <div class="slide"><img src="kirks photo 18.jpg" alt="Dojo Exterior"></div>
+                <div class="slide"><img src="kirks photo 5.jpg" alt="Traditional Training"></div>
+                
                 <div class="hero-overlay">
-                    <h1 style="margin:0; font-size: 1.8rem;">Grounded in Tradition</h1>
-                    <p>A "Karate Family" dedicated to Shorin-Ryu and Jiu-Jitsu in St. Thomas.</p>
+                    <h1 style="margin:0; font-size: 1.5rem;">Tradition & Community</h1>
+                    <p>Building "Brave Hearts" in St. Thomas since 2010.</p>
                     <button class="btn" onclick="showP('contact')">FREE TRIAL CLASS</button>
                 </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>Our Story</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center;">
-                <div>
-                    <p>Founded by Sensei Trevor Kirk, Kirk's Elite Karate Club has been a staple of the St. Thomas community since 2010. We specialize in traditional Okinawan Shorin-Ryu and Jiu-Jitsu.</p>
-                    <p>Our focus is on the "Brave Heart"—building discipline, focus, and respect in every student.</p>
-                </div>
-                <img src="kirks photo 4.jpg" style="width:100%; border-radius:8px;">
             </div>
         </section>
 
         <section id="floor">
             <h2>The Dojo Floor</h2>
             <div class="gallery-grid">
+                <div class="photo-card"><img src="kirks photo 4.jpg"><p>Sensei Trevor Kirk</p></div>
                 <div class="photo-card"><img src="kirks photo 3.jpg"><p>Dojo Interior</p></div>
-                <div class="photo-card"><img src="kirks photo 7.jpg"><p>Community & Heart</p></div>
-                <div class="photo-card"><img src="kirks photo 8.jpg"><p>Event Fun</p></div>
-                <div class="photo-card"><img src="kirks photo 12.jpg"><p>Training Focus</p></div>
-                </div>
+                <div class="photo-card"><img src="kirks photo 7.jpg"><p>Community Spirit</p></div>
+                <div class="photo-card"><img src="kirks photo 8.jpg"><p>Club Heart</p></div>
+            </div>
         </section>
 
         <section id="skills">
@@ -135,8 +108,10 @@
         <section id="contact">
             <h2>Find Us in St. Thomas</h2>
             <p><strong>36 St Catharine St, St. Thomas, ON</strong></p>
-            <p>Located near downtown with <strong>Free Parking</strong> on-site.</p>
-            <iframe width="100%" height="400" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_FREE_KEY_OR_USE_GENERIC&q=36+St+Catharine+St,St+Thomas,ON3"></iframe>
+            <p>Free Parking available on-site. Conveniently located near downtown.</p>
+            <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                <iframe width="100%" height="450" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_FREE_KEY_OR_USE_GENERIC&q=36+St+Catharine+St,St+Thomas,ON4"></iframe>
+            </div>
         </section>
     </div>
 
