@@ -5,163 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirk’s Elite Karate Club | St. Thomas, ON</title>
     <style>
-        :root { --primary: #1a1a1a; --accent: #d32f2f; --bg: #fdfdfd; --card: #ffffff; --text: #333; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: var(--text); background: var(--bg); line-height: 1.6; }
+        :root { --primary: #1a1a1a; --accent: #d32f2f; --sunset: #f39c12; --bg: #fafafa; --card: #ffffff; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: #333; background: var(--bg); overflow-x: hidden; }
         
         /* Security Gate */
         #password-gate { position: fixed; inset: 0; background: #111; z-index: 10000; display: flex; justify-content: center; align-items: center; color: white; }
-        .gate-box { padding: 40px; border: 1px solid #333; text-align: center; border-radius: 8px; }
+        .gate-box { padding: 40px; border: 2px solid var(--accent); text-align: center; border-radius: 12px; background: #1a1a1a; box-shadow: 0 0 20px rgba(211, 47, 47, 0.3); }
         
         /* Navigation */
-        header { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
-        nav { display: flex; gap: 15px; flex-wrap: wrap; }
-        nav a { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 600; padding: 5px 10px; border-radius: 4px; transition: 0.2s; }
-        nav a:hover { background: #eee; color: var(--accent); }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.3rem; }
+        nav { display: flex; gap: 10px; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: #444; font-size: 0.85rem; font-weight: 600; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
+        nav a:hover { color: var(--accent); background: #f0f0f0; }
 
-        /* Sections & Transitions */
-        section { padding: 60px 10%; display: none; animation: fadeIn 0.4s ease; }
+        /* Slow-Moving Hero Carousel */
+        .hero-carousel { position: relative; height: 70vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out; }
+        .slide.active { opacity: 1; }
+        .hero-overlay { position: relative; z-index: 10; background: rgba(0,0,0,0.5); padding: 40px; border-radius: 15px; border-top: 5px solid var(--accent); max-width: 800px; }
+        .hero-overlay h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Content Sections */
+        section { padding: 80px 10%; display: none; animation: slideUp 0.6s ease-out; }
         section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Styles & Cards */
-        .hero { text-align: center; padding: 40px 0; background: #f4f4f4; border-radius: 8px; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card); padding: 25px; border: 1px solid #eee; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        h2 { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; }
-        
-        /* Buttons */
-        .btn { background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; display: inline-block; }
-        
-        /* Schedule Table */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: #f8f8f8; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card); padding: 35px; border-radius: 10px; border-bottom: 4px solid #eee; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .card:hover { border-bottom: 4px solid var(--accent); transform: translateY(-5px); }
 
-        footer { background: var(--primary); color: #888; padding: 50px 10%; margin-top: 60px; text-align: center; font-size: 0.85rem; }
-        footer a { color: #bbb; text-decoration: none; margin: 0 10px; }
-        footer a:hover { color: white; text-decoration: underline; }
+        .btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; display: inline-block; transition: 0.3s; box-shadow: 0 4px 10px rgba(211,47,47,0.3); }
+        .btn:hover { transform: scale(1.05); background: #b71c1c; }
+
+        footer { background: #111; color: #777; padding: 60px 10% 20px; text-align: center; margin-top: 100px; }
+        footer a { color: #aaa; text-decoration: none; font-weight: bold; margin: 0 15px; }
+        footer a:hover { color: var(--accent); }
+
+        .kanji-watermark { font-size: 8rem; position: absolute; right: 5%; bottom: 5%; opacity: 0.03; font-family: serif; pointer-events: none; }
     </style>
 </head>
 <body>
 
     <div id="password-gate">
         <div class="gate-box">
-            <h1>KIRK’S ELITE</h1>
-            <p>Enter Access Code to View Staging Site</p>
-            <input type="password" id="passInput" style="padding:10px; margin: 15px 0; width: 200px;"><br>
-            <button class="btn" onclick="checkPass()">ENTER</button>
+            <h1 style="margin:0; color:var(--accent)">精空手</h1>
+            <p style="margin-top:0; letter-spacing: 5px;">KIRK’S ELITE</p>
+            <input type="password" id="passInput" placeholder="Access Code" style="padding:12px; margin: 15px 0; width: 220px; border-radius: 5px; border: none;"><br>
+            <button class="btn" onclick="checkPass()">ENTER DOJO</button>
         </div>
     </div>
 
     <header>
-        <div class="logo">KIRK’S ELITE <span style="color:var(--accent)">KARATE</span></div>
+        <div class="logo-area">
+            <span style="color:var(--accent)">精空手</span> KIRK’S ELITE
+        </div>
         <nav>
             <a href="#" onclick="showP('home')">Home</a>
             <a href="#" onclick="showP('about')">About</a>
             <a href="#" onclick="showP('kids')">Kids</a>
             <a href="#" onclick="showP('adults')">Adults</a>
             <a href="#" onclick="showP('schedule')">Schedule</a>
-            <a href="#" onclick="showP('faq')">FAQ</a>
             <a href="#" onclick="showP('contact')">Contact</a>
         </nav>
     </header>
 
     <div id="main-content">
-        <section id="home" class="active">
-            <div class="hero">
-                <h1>Tradition in St. Thomas</h1>
-                <p>Developing confidence, discipline, and "Brave Hearts" for over 15 years.</p>
-                <button class="btn" onclick="showP('contact')">BOOK A FREE TRIAL CLASS</button>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <h3>15 Years in the Community</h3>
-                    <p>Founded in 2010, Kirk's Elite is a family-run club dedicated to Okinawan Shorin-Ryu Karate and Jiu-Jitsu.</p>
+        <section id="home" class="active" style="padding: 0;">
+            <div class="hero-carousel">
+                <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=1600');"></div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&q=80&w=1600');"></div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=1600');"></div>
+                
+                <div class="hero-overlay">
+                    <h1>Grounded in Tradition</h1>
+                    <p>Building "Brave Hearts" and stronger families in St. Thomas for 15 years.</p>
+                    <button class="btn" onclick="showP('contact')">BOOK A FREE TRIAL</button>
                 </div>
-                <div class="card">
-                    <h3>"Karate Family"</h3>
-                    <p>We pride ourselves on a welcoming atmosphere where every student is supported and encouraged.</p>
+            </div>
+
+            <div style="padding: 60px 10%; text-align: center;">
+                <h2 style="border:none; padding:0;">The Elite Standard</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Okinawan Heritage</h3>
+                        <p>Specializing in Shorin-Ryu, focusing on natural stances and fluid movements. A style built for longevity and practical defense.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Sensei Kirk</h3>
+                        <p>Led by Sensei Trevor Kirk with over 20 years of dedication. We are a family-run club where every member counts.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Canadian Jiu Jitsu</h3>
+                        <p>Proudly certified members of the Canadian Jiu Jitsu Council, maintaining national standards for ground defense.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="about">
-            <h2>Our Story</h2>
-            <p>Kirk's Elite Karate Club was founded with a simple mission: to provide high-quality martial arts instruction in a humble, grounded environment. Led by Sensei Trevor Kirk, we focus on traditional Okinawan Shorin-Ryu—a style known for its natural movements and practical application.</p>
-            <p>Our club is a proud member of the Canadian Jiu Jitsu Council, maintaining rigorous standards for over two decades of instruction.</p>
+            <h2>15 Years of Community</h2>
+            <p>Our story began in November 2010. We aren't a high-gloss commercial gym—we are a community dojo located at 36 St Catharine Street.</p>
+            <div class="kanji-watermark">精空手</div>
         </section>
 
         <section id="kids">
-            <h2>Brave Hearts (Kids Program)</h2>
-            <p>Our kids' program is designed to turn high energy into high achievement. We focus on:</p>
-            <ul>
-                <li>Discipline and Respect</li>
-                <li>Focus and Concentration</li>
-                <li>Self-Defense & Bully Prevention</li>
-            </ul>
-            <button class="btn" onclick="showP('contact')">Request Kids Schedule</button>
-        </section>
-
-        <section id="adults">
-            <h2>Adult Shorin-Ryu & Jiu-Jitsu</h2>
-            <p>Whether you are looking for fitness, stress relief, or traditional mastery, our adult program offers a balanced approach. We teach fluid, circular movements that are effective for students of all ages and fitness levels.</p>
+            <h2>Elite Kids: Building Brave Hearts</h2>
+            <p>We help children turn focus into achievement. Our classes are designed to build confidence, respect, and discipline while having fun.</p>
+            <button class="btn" onclick="showP('contact')">GET KIDS SCHEDULE</button>
         </section>
 
         <section id="schedule">
-            <h2>Class Schedule</h2>
-            <table>
-                <tr><th>Day</th><th>Program</th><th>Time</th></tr>
-                <tr><td>Monday</td><td>Elite Kids</td><td>5:30 PM - 6:30 PM</td></tr>
-                <tr><td>Wednesday</td><td>Elite Kids</td><td>5:30 PM - 6:30 PM</td></tr>
-                <tr><td>Wednesday</td><td>Adult Karate</td><td>6:30 PM - 7:30 PM</td></tr>
-            </table>
-            <p><small>*Please contact us for the most up-to-date seasonal hours.</small></p>
-        </section>
-
-        <section id="faq">
-            <h2>Frequently Asked Questions</h2>
+            <h2>Current Schedule</h2>
             <div class="card">
-                <strong>What should I wear to my first class?</strong>
-                <p>Comfortable workout clothes like a T-shirt and track pants are perfect for your first trial class.</p>
-            </div>
-            <div class="card" style="margin-top:15px;">
-                <strong>What age can my child start?</strong>
-                <p>We typically welcome students starting at age 4 for our Elite Kids program.</p>
+                <p><strong>Mondays:</strong> 5:30 PM - 6:30 PM (Elite Kids)</p>
+                <hr>
+                <p><strong>Wednesdays:</strong> 5:30 PM - 6:30 PM (Elite Kids) / 6:30 PM - 7:30 PM (Adults)</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Join the Family</h2>
-            <form name="main-contact" method="POST" data-netlify="true">
-                <input type="text" name="name" placeholder="Name" style="width:100%; padding:10px; margin-bottom:10px;"><br>
-                <input type="email" name="email" placeholder="Email" style="width:100%; padding:10px; margin-bottom:10px;"><br>
-                <textarea name="msg" placeholder="Tell us about yourself..." style="width:100%; padding:10px; height:100px;"></textarea><br>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+            <div class="grid">
+                <div class="card">
+                    <form name="elite-contact" method="POST" data-netlify="true">
+                        <input type="text" name="name" placeholder="Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd;">
+                        <input type="email" name="email" placeholder="Email" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd;">
+                        <textarea name="msg" placeholder="Tell us about your goals..." style="width:100%; padding:15px; height:120px; border:1px solid #ddd;"></textarea>
+                        <button type="submit" class="btn" style="width:100%">SEND REQUEST</button>
+                    </form>
+                </div>
+                <div style="padding:20px;">
+                    <h3>Location</h3>
+                    <p>36 St Catharine St<br>St. Thomas, ON N5P 2V8</p>
+                    <p><strong>Phone:</strong> (519) 633-4425</p>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>Kirk’s Elite Karate Club | 36 St Catharine St, St. Thomas, ON | (519) 633-4425</p>
-        <div style="margin: 20px 0;">
-            <a href="https://www.facebook.com/groups/169485559738370/" target="_blank">Member Facebook Group</a> |
-            <a href="https://shop.flipgive.com/onboarding/join?fundraiser_name=Alicia&joincode=5C46L6" target="_blank">FlipGive Team Portal</a>
+        <div style="margin-bottom: 20px;">
+            <a href="https://www.facebook.com/groups/169485559738370/" target="_blank">Facebook Member Group</a>
+            <a href="https://shop.flipgive.com/onboarding/join?fundraiser_name=Alicia&joincode=5C46L6" target="_blank">FlipGive Portal</a>
         </div>
-        <p style="opacity:0.5">Member: Canadian Jiu Jitsu Council | Founded November 21, 2010</p>
+        <p>&copy; 2026 Kirk’s Elite Karate Club | Member: Canadian Jiu Jitsu Council</p>
     </footer>
 
     <script>
+        // Password Gate
         function checkPass() {
             if (document.getElementById("passInput").value === "ELITE2026") {
                 document.getElementById("password-gate").style.display = "none";
+                startCarousel();
             } else { alert("Incorrect Code"); }
         }
 
+        // Navigation
         function showP(id) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             window.scrollTo(0,0);
+        }
+
+        // Slow Hero Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function startCarousel() {
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000); // Fades every 5 seconds
         }
     </script>
 </body>
