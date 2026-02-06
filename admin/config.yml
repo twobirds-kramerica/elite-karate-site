@@ -13,18 +13,18 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          # Welcome / Splash Section
-          - {label: "Welcome Title", name: "welcome_title", widget: "string", default: "Welcome to the Digital Dojo"}
+          # Badges & Callouts (The "Modern Starbursts")
+          - {label: "Badge 1 (Red)", name: "badge_red", widget: "string", default: "Beginners Welcome"}
+          - {label: "Badge 2 (Black)", name: "badge_black", widget: "string", default: "Family & Kids"}
+          - {label: "Badge 3 (Orange)", name: "badge_orange", widget: "string", default: "Beginner to Pro"}
+
+          # Welcome Section
+          - {label: "Welcome Title", name: "welcome_title", widget: "string", default: "Modern Tradition."}
           - {label: "Welcome Text", name: "welcome_text", widget: "text"}
           
           # Sensei Bio Section
           - {label: "Sensei Name", name: "sensei_name", widget: "string", default: "Sensei Trevor Kirk"}
-          - {label: "Sensei Role", name: "sensei_role", widget: "string", default: "Lead Instructor"}
           - {label: "Sensei Bio", name: "sensei_bio", widget: "markdown"}
-          
-          # Skills Corner (Video)
-          - {label: "Video Title", name: "video_title", widget: "string", default: "White Belt Kata"}
-          - {label: "Video Description", name: "video_desc", widget: "text"}
           
           # Location & Contact
           - {label: "Street Address", name: "address", widget: "string", default: "36 St Catharine St, St. Thomas, ON"}
