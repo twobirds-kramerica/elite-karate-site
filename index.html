@@ -10,149 +10,99 @@
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans scroll-smooth">
 
-    <nav class="bg-white border-b border-slate-200 p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
+    <nav class="bg-white border-b border-slate-200 py-3 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-3 hover:opacity-80 transition">
-                <img src="kirks photo 24.jpg" class="h-10 w-10 rounded-full border border-slate-200" alt="Kirk's Elite Karate Logo">
-                <h1 class="text-xl font-bold tracking-tighter uppercase">
-                    <span class="text-red-600">Kirk's Elite</span> Karate
+                <img src="kirks photo 24.jpg" class="h-10 w-10 rounded-full border border-slate-200" alt="Kirk's Elite Logo">
+                <h1 class="text-xl font-bold tracking-tighter uppercase leading-none">
+                    <span class="text-red-600 block text-xs tracking-[0.3em]">Kirk's Elite</span> Karate
                 </h1>
             </a>
-            <div class="space-x-6 hidden md:flex text-sm font-semibold uppercase tracking-wider">
+            <div class="space-x-6 hidden md:flex text-[10px] font-black uppercase tracking-[0.2em]">
                 <a href="#welcome" class="hover:text-red-600">Welcome</a>
+                <a href="#about" class="hover:text-red-600">The Sensei</a>
                 <a href="#gallery" class="hover:text-red-600">Dojo Floor</a>
-                <a href="#skills" class="hover:text-red-600">Skills Corner</a>
-                <a href="#find-us" class="hover:text-red-600 text-red-600 font-bold">Find Us</a>
+                <a href="#find-us" class="text-red-600">Find Us</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <section id="welcome" class="py-16 bg-white">
-            <div class="container mx-auto px-4 max-w-4xl text-center">
-                <h2 class="text-4xl font-black uppercase mb-6 text-slate-900">Welcome to the Digital Dojo</h2>
-                <p class="text-xl text-slate-600 leading-relaxed mb-8">
-                    This project is a dedicated space for <strong>Kirk's Elite Karate Club</strong>. We are combining modern technology with the tradition of Shorin-ryu Jiu-Jitsu to better serve our St. Thomas community. Before you jump into our FlipGive team page, take a moment to explore our curriculum, training floor, and local mission.
+        <section id="welcome" class="pt-10 pb-16 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <span class="bg-red-600 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg transform -rotate-2">Beginners Welcome</span>
+                    <span class="bg-slate-900 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg transform rotate-1">Family & Kids</span>
+                    <span class="bg-orange-500 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg transform -rotate-1">Beginner to Pro</span>
+                </div>
+
+                <h2 class="text-5xl md:text-7xl font-black uppercase mb-6 text-slate-900 tracking-tighter">
+                    Modern <span class="text-red-600 italic">Tradition.</span>
+                </h2>
+                <p class="text-lg text-slate-500 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    A dedicated space for <strong>Kirk's Elite Karate Club</strong>. We combine modern technology with Shorin-ryu Jiu-Jitsu to serve the St. Thomas community.
                 </p>
-                <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <a href="#join-team" class="bg-red-600 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-red-700 transition">Join the Team</a>
-                    <a href="#about" class="border-2 border-slate-900 px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-slate-900 hover:text-white transition">Meet Sensei Kirk</a>
+                <a href="#join-team" class="bg-red-600 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block shadow-2xl">
+                    Join the Team
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-12 bg-slate-50 border-t border-slate-100">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 bg-red-600 text-white p-4 rounded-lg z-10 shadow-xl hidden md:block">
+                        <p class="text-xs font-black uppercase tracking-widest">Lead Instructor</p>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="kirks photo 22.jpg" alt="Sensei Trevor Kirk" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-4xl font-black uppercase leading-tight">Sensei <br><span class="text-red-600">Trevor Kirk</span></h3>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        In St. Thomas, our dojo is a community dedicated to personal growth, self-defense, and the pursuit of excellence.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 w-12 bg-red-600"></div>
+                        <p class="text-sm font-bold uppercase tracking-widest text-slate-400">Shorin-ryu Jiu-Jitsu Lineage</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="py-16 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            <div class="rounded-2xl overflow-hidden shadow-2xl">
-                <img src="kirks photo 22.jpg" alt="Sensei Trevor Kirk" class="w-full h-auto">
-                <div class="bg-slate-900 text-white p-6 text-center">
-                    <p class="text-2xl font-bold uppercase tracking-tighter">Sensei Trevor Kirk</p>
-                    <p class="text-red-500 font-semibold uppercase text-sm tracking-widest">Lead Instructor</p>
-                </div>
-            </div>
-            <div class="space-y-6">
-                <h2 class="text-4xl font-black uppercase leading-tight">Elite Training in <br><span class="text-red-600">St. Thomas, Ontario</span></h2>
-                <p class="text-slate-600 text-lg leading-relaxed">
-                    At Kirk's Elite Karate Club, we specialize in <strong>Shorin-ryu Jiu-Jitsu</strong>, a lineage that honors traditional martial arts while adapting to the modern world.
-                </p>
-                <div class="bg-slate-100 p-6 rounded-xl border-l-4 border-slate-900">
-                    <p class="italic text-slate-700 font-medium">"Building strength through discipline, and community through respect."</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="gallery" class="py-16 bg-slate-900 text-white">
+        <section id="gallery" class="py-20 bg-slate-900">
             <div class="container mx-auto px-4">
-                <h3 class="text-3xl font-black uppercase mb-12 text-center tracking-widest">The Dojo Floor</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                        <img src="kirks photo 26.jpg" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500" alt="Tradition">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black p-4"><p class="text-sm font-bold uppercase">Respect</p></div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                        <img src="kirks photo 25.jpg" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500" alt="Training">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black p-4"><p class="text-sm font-bold uppercase">Technique</p></div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                        <img src="kirks photo 21.jpg" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500" alt="Action">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black p-4"><p class="text-sm font-bold uppercase">Discipline</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="py-16 bg-slate-100">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <h3 class="text-3xl font-black uppercase mb-12 text-center">Skills Corner</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-3xl shadow-lg">
-                        <h4 class="text-xl font-bold mb-4 uppercase text-red-600">White Belt Kata</h4>
-                        <video controls preload="metadata" class="w-full rounded-xl shadow-inner bg-black aspect-video">
-                            <source src="white-belt-kata.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="mt-4 text-slate-500 text-sm">Review the fundamental movements and posture required for white belt certification.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-lg">
-                        <h4 class="text-xl font-bold mb-4 uppercase text-slate-900">Belt Tying Guide</h4>
-                        <img src="kirks photo 21.jpg" class="w-full rounded-xl aspect-video object-cover grayscale opacity-50" alt="Coming Soon">
-                        <p class="mt-4 text-slate-500 text-sm italic text-center">Tutorial Video Coming Soon</p>
-                    </div>
+                <h3 class="text-2xl font-black uppercase mb-10 text-center text-white tracking-[0.4em]">The Dojo Floor</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <img src="kirks photo 26.jpg" class="rounded-lg shadow-2xl hover:opacity-80 transition h-64 w-full object-cover" alt="Respect">
+                    <img src="kirks photo 25.jpg" class="rounded-lg shadow-2xl hover:opacity-80 transition h-64 w-full object-cover" alt="Technique">
+                    <img src="kirks photo 21.jpg" class="rounded-lg shadow-2xl hover:opacity-80 transition h-64 w-full object-cover" alt="Action">
                 </div>
             </div>
         </section>
 
         <section id="find-us" class="py-20 bg-white">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-4xl font-black uppercase mb-6">Find Us in <br><span class="text-red-600">St. Thomas</span></h3>
-                        <p class="text-xl font-bold text-slate-900 mb-2">36 St Catharine St, St. Thomas, ON</p>
-                        <p class="text-slate-600 mb-8">Conveniently located near downtown. Free parking is available on-site for all students.</p>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=36+St+Catharine+St+St+Thomas+ON" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-red-600 transition inline-block">Get Directions</a>
-                    </div>
-                    <div class="rounded-3xl overflow-hidden shadow-2xl h-80 border-4 border-slate-100">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            scrolling="no" 
-                            marginheight="0" 
-                            marginwidth="0" 
-                            src="https://maps.google.com/maps?q=36%20St%20Catharine%20St,%20St.%20Thomas,%20ON&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                        </iframe>
-                    </div>
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-black uppercase mb-4">Find Us</h3>
+                    <p class="text-lg font-bold">36 St Catharine St, St. Thomas, ON</p>
+                    <p class="text-slate-500 mt-2 mb-6">Experience the elite difference in person.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=36+St+Catharine+St+St+Thomas+ON" target="_blank" class="text-red-600 font-bold uppercase text-sm tracking-widest border-b-2 border-red-600 pb-1">Get Directions</a>
                 </div>
-            </div>
-        </section>
-
-        <section id="join-team" class="py-20 bg-red-600 text-white text-center">
-            <div class="container mx-auto px-4">
-                <h3 class="text-4xl font-black uppercase mb-4">Support the Club</h3>
-                <p class="text-xl mb-10 max-w-2xl mx-auto">Shop online through FlipGive and help us raise funds for new equipment and tournament travel!</p>
-                <a href="https://www.flipgive.com/teams/your-team-id" target="_blank" class="bg-white text-red-600 px-12 py-5 rounded-full font-black uppercase tracking-[0.2em] shadow-2xl hover:scale-105 transition-transform inline-block">Join Team on FlipGive</a>
+                <div class="h-64 bg-slate-200 rounded-3xl overflow-hidden shadow-inner grayscale">
+                    <iframe width="100%" height="100%" frameborder="0" src="https://maps.google.com/maps?q=36%20St%20Catharine%20St,%20St.%20Thomas,%20ON&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-900 text-slate-500 py-12 text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-white font-bold uppercase tracking-widest mb-4">Kirk's Elite Karate Club</p>
-            <p class="text-sm">St. Thomas, Ontario | Shorin-ryu Jiu-Jitsu</p>
-            <div class="mt-8 pt-8 border-t border-slate-800 text-[10px] uppercase tracking-[0.3em]">
-                &copy; 2026 Kirk's Elite Karate. All Rights Reserved.
-            </div>
-        </div>
+    <footer class="bg-black text-slate-600 py-10 text-center text-[10px] font-bold uppercase tracking-[0.5em]">
+        Kirk's Elite Karate &copy; 2026
     </footer>
 
     <script>
         lucide.createIcons();
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
-                }
-            });
-        }
     </script>
 </body>
 </html>
