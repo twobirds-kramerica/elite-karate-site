@@ -17,14 +17,15 @@
     <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-4 hover:opacity-80 transition">
-                <img src="kirks photo 24.jpg" class="h-12 w-12 rounded-full border-2 border-red-600 shadow-sm" alt="Kirk's Elite Logo">
+                <img src="kirks photo 24.jpg" class="h-14 w-14 rounded-full border-2 border-red-600 shadow-sm" alt="Kirk's Elite Logo">
                 <div class="leading-none">
                     <span class="text-red-600 block text-sm font-black uppercase tracking-[0.2em]">Kirk's Elite</span>
-                    <span class="text-slate-900 text-2xl font-black uppercase tracking-tighter">Karate</span>
+                    <span class="text-slate-900 text-3xl font-black uppercase tracking-tighter">Karate</span>
                 </div>
             </a>
-            <div class="space-x-8 hidden md:flex text-sm font-black uppercase tracking-widest">
-                <a href="#welcome" class="hover:text-red-600 transition">Welcome</a>
+            <div class="space-x-8 hidden md:flex text-xs font-black uppercase tracking-widest">
+                <a href="#welcome" class="hover:text-red-600 transition">Home</a>
+                <a href="#about" class="hover:text-red-600 transition">Our Story</a>
                 <a href="#gallery" class="hover:text-red-600 transition">Dojo Floor</a>
                 <a href="#find-us" class="text-red-600">Find Us</a>
             </div>
@@ -36,33 +37,37 @@
             <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
                 
                 <div class="text-center md:text-left order-2 md:order-1">
-                    <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
-                        <span class="bg-red-600 text-white text-[10px] font-black px-4 py-1.5 rounded uppercase tracking-widest shadow-sm">Beginners Welcome</span>
-                        <span class="bg-slate-900 text-white text-[10px] font-black px-4 py-1.5 rounded uppercase tracking-widest shadow-sm">Adults & Kids 4+</span>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                        <span class="bg-red-600 text-white text-xs font-black px-6 py-2 rounded uppercase tracking-widest shadow-md">Beginners Welcome</span>
+                        <span class="bg-slate-900 text-white text-xs font-black px-6 py-2 rounded uppercase tracking-widest shadow-md">Adults & Kids 4+</span>
                     </div>
                     <h2 class="text-6xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter text-slate-900 mb-6">
                         Modern<br><span class="text-red-600 italic">Tradition.</span>
                     </h2>
-                    <p class="text-lg text-slate-500 leading-relaxed mb-8 max-w-lg">
-                        Shorin-ryu Jiu-Jitsu in St. Thomas. Building strength through discipline and community through respect.
+                    <p class="text-xl text-slate-500 leading-relaxed mb-8 max-w-lg">
+                        Building strength through discipline and community through respect in St. Thomas.
                     </p>
-                    <a href="#join-team" class="bg-red-600 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:bg-slate-900 transition-colors inline-block shadow-xl">
+                    <a href="#join-team" class="bg-red-600 text-white px-10 py-5 rounded-full font-black uppercase tracking-widest hover:bg-slate-900 transition-all inline-block shadow-2xl scale-105">
                         Join the Team
                     </a>
                 </div>
 
                 <div class="order-1 md:order-2 flex justify-center">
                     <div class="relative w-full max-w-sm">
-                        <div class="absolute -bottom-4 -right-4 bg-white p-4 shadow-2xl rounded-xl z-10 hidden md:block border border-slate-100">
-                            <p class="text-[10px] font-black uppercase tracking-widest text-red-600">Sensei Trevor Kirk</p>
-                            <p class="text-[9px] text-slate-400 uppercase font-bold">Lead Instructor</p>
-                        </div>
                         <div class="rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white ring-1 ring-slate-200">
-                            <img src="kirks photo 22.jpg" alt="Sensei Trevor Kirk" class="w-full h-auto object-cover scale-105">
+                            <img src="kirks photo 22.jpg" alt="Sensei Trevor Kirk" class="w-full h-auto object-cover">
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <section id="about" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-3xl text-center">
+                <h3 class="text-3xl font-black uppercase mb-6 tracking-tight text-red-600">Our Story</h3>
+                <p class="text-lg text-slate-700 leading-relaxed italic">
+                    "At Kirk's Elite Karate Club, we specialize in Shorin-ryu Jiu-Jitsu, a lineage that honors traditional martial arts while adapting to the modern world. Our mission is to provide an elite training environment for families in St. Thomas."
+                </p>
             </div>
         </section>
 
@@ -70,10 +75,15 @@
             <div class="container mx-auto px-4">
                 <h3 class="text-2xl font-black uppercase mb-12 text-center text-white tracking-[0.5em]">The Dojo Floor</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <img src="kirks photo 26.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover grayscale hover:grayscale-0 transition duration-500" alt="Respect">
-                    <img src="kirks photo 25.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover" alt="Technique">
-                    <img src="kirks photo 21.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover grayscale hover:grayscale-0 transition duration-500" alt="Discipline">
+                    <img src="kirks photo 26.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover object-top hover:scale-105 transition duration-500" alt="Tradition">
+                    <img src="kirks photo 25.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover hover:scale-105 transition duration-500" alt="Technique">
+                    <img src="kirks photo 21.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover hover:scale-105 transition duration-500" alt="Discipline">
+                    
+                    <img src="kirks photo 23.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover hover:scale-105 transition duration-500" alt="Club Branding">
+                    <img src="kirks photo 25.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover grayscale opacity-50" alt="Action Shot 2">
+                    <img src="kirks photo 21.jpg" class="rounded-2xl shadow-2xl h-72 w-full object-cover grayscale opacity-50" alt="Action Shot 3">
                 </div>
+                <p class="text-slate-500 text-center mt-8 text-xs uppercase tracking-widest font-bold italic">Experience the elite environment</p>
             </div>
         </section>
 
@@ -89,7 +99,7 @@
     </main>
 
     <footer class="bg-black text-slate-700 py-12 text-center text-[9px] font-bold uppercase tracking-[0.6em]">
-        Kirk's Elite Karate &copy; 2026 | St. Thomas, Ontario
+        Kirk's Elite Karate © 2026 | St. Thomas, Ontario
     </footer>
 
     <script>
