@@ -20,12 +20,19 @@ collections:
           # Hero Section
           - {label: "Main Heading (Large)", name: "hero_title_top", widget: "string", default: "Modern"}
           - {label: "Sub Heading (Italic)", name: "hero_title_bottom", widget: "string", default: "Tradition."}
-          - {label: "Hero Subtext", name: "hero_text", widget: "text", default: "Shorin-ryu Jiu-Jitsu in St. Thomas. Building strength through discipline and community through respect."}
+          - {label: "Hero Subtext", name: "hero_text", widget: "text", default: "Building strength through discipline and community through respect in St. Thomas."}
           
-          # Sensei Bio Section
-          - {label: "Sensei Image", name: "sensei_image", widget: "image", default: "kirks photo 22.jpg"}
-          - {label: "Sensei Name", name: "sensei_name", widget: "string", default: "Sensei Trevor Kirk"}
-          - {label: "Sensei Bio", name: "sensei_bio", widget: "markdown"}
+          # Our Story Section
+          - {label: "About Section Heading", name: "about_heading", widget: "string", default: "Our Story"}
+          - {label: "About Section Text", name: "about_text", widget: "markdown", default: "At Kirk's Elite Karate Club, we specialize in Shorin-ryu Jiu-Jitsu..."}
           
-          # Fundraising / FlipGive
+          # Dojo Floor - Expanded Gallery (6 Slots)
+          - label: "Dojo Floor Images"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.image}}"
+            field: {label: "Image", name: "image", widget: "image"}
+
+          # Location & Fundraising
+          - {label: "Street Address", name: "address", widget: "string", default: "36 St Catharine St, St. Thomas, ON"}
           - {label: "FlipGive Team URL", name: "flipgive_url", widget: "string", default: "https://www.flipgive.com/teams/your-id"}
