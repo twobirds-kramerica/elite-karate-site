@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kirk's Elite Karate Club | St. Thomas, ON</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta name="description" content="Shorin-ryu Jiu-Jitsu for kids, teens, and adults in St. Thomas, Ontario. Beginners welcome. Building strength through discipline and community through respect.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 scroll-smooth">
+<body class="bg-slate-50 text-slate-900">
 
+    <!-- Navigation -->
     <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-4 hover:opacity-80 transition">
-                <img src="kirks photo 24.jpg" class="h-14 w-14 rounded-full border-2 border-red-600 shadow-sm" alt="Kirk's Elite Logo">
+                <img src="kirks photo 24.jpg" class="h-14 w-14 rounded-full border-2 border-red-600 shadow-sm" alt="Kirk's Elite Karate Club logo">
                 <div class="leading-none">
                     <span class="text-red-600 block text-sm font-black uppercase tracking-[0.2em]">Kirk's Elite</span>
                     <span class="text-slate-900 text-3xl font-black uppercase tracking-tighter">Karate</span>
@@ -26,27 +27,43 @@
             <div class="space-x-8 hidden md:flex text-xs font-black uppercase tracking-widest">
                 <a href="#welcome" class="hover:text-red-600 transition">Home</a>
                 <a href="#about" class="hover:text-red-600 transition">Our Story</a>
+                <a href="#classes" class="hover:text-red-600 transition">Classes</a>
                 <a href="#gallery" class="hover:text-red-600 transition">Dojo Floor</a>
+                <a href="#schedule" class="hover:text-red-600 transition">Schedule</a>
                 <a href="#find-us" class="text-red-600">Find Us</a>
             </div>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <!-- Mobile nav -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 pt-2 space-y-3 text-xs font-black uppercase tracking-widest">
+            <a href="#welcome" class="block hover:text-red-600 transition">Home</a>
+            <a href="#about" class="block hover:text-red-600 transition">Our Story</a>
+            <a href="#classes" class="block hover:text-red-600 transition">Classes</a>
+            <a href="#gallery" class="block hover:text-red-600 transition">Dojo Floor</a>
+            <a href="#schedule" class="block hover:text-red-600 transition">Schedule</a>
+            <a href="#find-us" class="block text-red-600">Find Us</a>
         </div>
     </nav>
 
     <main>
+        <!-- Hero -->
         <section id="welcome" class="pt-10 pb-20 bg-white border-b border-slate-100">
             <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
                 <div class="text-center md:text-left order-2 md:order-1">
                     <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
                         <span class="bg-red-600 text-white text-sm font-black px-8 py-2 rounded uppercase tracking-widest shadow-md">Beginners Welcome</span>
-                        <span class="bg-slate-900 text-white text-sm font-black px-8 py-2 rounded uppercase tracking-widest shadow-md">Adults & Kids 4+</span>
+                        <span class="bg-slate-900 text-white text-sm font-black px-8 py-2 rounded uppercase tracking-widest shadow-md">Adults &amp; Kids 4+</span>
                     </div>
-                    <h2 class="text-6xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter text-slate-900 mb-6">
+                    <h1 class="text-6xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter text-slate-900 mb-6">
                         Modern<br><span class="text-red-600 italic">Tradition.</span>
-                    </h2>
+                    </h1>
                     <p class="text-xl text-slate-500 leading-relaxed mb-10 max-w-lg">
-                        Building strength through discipline and community through respect in St. Thomas.
+                        Building strength through discipline and community through respect in St. Thomas, Ontario.
                     </p>
-                    <a href="#join-team" class="bg-red-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-all inline-block shadow-2xl">
+                    <a href="#contact" class="bg-red-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-all inline-block shadow-2xl">
                         Join the Team
                     </a>
                 </div>
@@ -54,53 +71,182 @@
                 <div class="order-1 md:order-2 flex justify-center">
                     <div class="relative w-full max-w-sm">
                         <div class="rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white ring-1 ring-slate-200">
-                            <img src="kirks photo 22.jpg" alt="Sensei Trevor Kirk" class="w-full h-auto object-cover">
+                            <img src="kirks photo 22.jpg" alt="Sensei Trevor Kirk demonstrating karate technique" class="w-full h-auto object-cover">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Our Story -->
         <section id="about" class="py-24 bg-slate-50">
             <div class="container mx-auto px-4 max-w-3xl text-center">
-                <h3 class="text-3xl font-black uppercase mb-8 tracking-tight text-red-600 underline decoration-slate-200 underline-offset-8">Our Story</h3>
-                <p class="text-xl text-slate-700 leading-relaxed italic font-medium">
-                    "At Kirk's Elite Karate Club, we specialize in Shorin-ryu Jiu-Jitsu, honoring traditional martial arts while adapting to the modern world."
+                <h2 class="text-3xl font-black uppercase mb-8 tracking-tight text-red-600 underline decoration-slate-200 underline-offset-8">Our Story</h2>
+                <p class="text-xl text-slate-700 leading-relaxed italic font-medium mb-6">
+                    "At Kirk's Elite Karate Club, we specialise in Shorin-ryu Jiu-Jitsu, honouring traditional martial arts while adapting to the modern world."
+                </p>
+                <p class="text-lg text-slate-500 leading-relaxed">
+                    Founded by Sensei Trevor Kirk, our dojo is a place where students of all ages and abilities learn discipline, respect, and self-defence. Whether you are four years old taking your first stance or an adult looking for a new challenge, you belong here.
                 </p>
             </div>
         </section>
 
-        <section id="gallery" class="py-24 bg-slate-900 text-white">
-            <div class="container mx-auto px-4 text-center">
-                <h3 class="text-2xl font-black uppercase mb-16 tracking-[0.5em]">The Dojo Floor</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <img src="kirks photo 26.jpg" class="rounded-2xl h-80 w-full object-cover object-top shadow-2xl" alt="Respect">
-                    <img src="kirks photo 25.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Technique">
-                    <img src="kirks photo 21.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Action">
-                    <img src="kirks photo 23.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Branding">
-                    <img src="kirks photo 25.jpg" class="rounded-2xl h-80 w-full object-cover grayscale opacity-40 shadow-2xl" alt="Training 2">
-                    <img src="kirks photo 21.jpg" class="rounded-2xl h-80 w-full object-cover grayscale opacity-40 shadow-2xl" alt="Training 3">
+        <!-- Classes -->
+        <section id="classes" class="py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-3xl font-black uppercase mb-16 tracking-tight text-center text-red-600 underline decoration-slate-200 underline-offset-8">Our Classes</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Kids -->
+                    <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-100 hover:shadow-lg transition">
+                        <div class="text-5xl mb-4">🥋</div>
+                        <h3 class="text-xl font-black uppercase tracking-wide mb-3">Little Dragons</h3>
+                        <p class="text-sm font-bold text-red-600 uppercase tracking-widest mb-4">Ages 4–7</p>
+                        <p class="text-slate-500 leading-relaxed">
+                            Fun, structured classes that build coordination, focus, and confidence. Perfect for young beginners learning the basics of respect and movement.
+                        </p>
+                    </div>
+                    <!-- Youth -->
+                    <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-100 hover:shadow-lg transition">
+                        <div class="text-5xl mb-4">🔥</div>
+                        <h3 class="text-xl font-black uppercase tracking-wide mb-3">Youth Program</h3>
+                        <p class="text-sm font-bold text-red-600 uppercase tracking-widest mb-4">Ages 8–15</p>
+                        <p class="text-slate-500 leading-relaxed">
+                            Technique-focused training with belt progression. Students develop discipline, physical fitness, and practical self-defence skills.
+                        </p>
+                    </div>
+                    <!-- Adults -->
+                    <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-100 hover:shadow-lg transition">
+                        <div class="text-5xl mb-4">💪</div>
+                        <h3 class="text-xl font-black uppercase tracking-wide mb-3">Adult Karate</h3>
+                        <p class="text-sm font-bold text-red-600 uppercase tracking-widest mb-4">Ages 16+</p>
+                        <p class="text-slate-500 leading-relaxed">
+                            Traditional Shorin-ryu training for all levels. Build strength, learn effective self-defence, and join a supportive community of martial artists.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="find-us" class="py-24 bg-white">
+        <!-- Dojo Floor / Gallery -->
+        <section id="gallery" class="py-24 bg-slate-900 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl font-black uppercase mb-16 tracking-[0.5em]">The Dojo Floor</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <img src="kirks photo 26.jpg" class="rounded-2xl h-80 w-full object-cover object-top shadow-2xl" alt="Students showing respect with a bow">
+                    <img src="kirks photo 25.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Karate technique demonstration">
+                    <img src="kirks photo 21.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Students in action during class">
+                    <img src="kirks photo 23.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Kirk's Elite Karate Club branding">
+                    <img src="kirks photo 3.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Training session at the dojo">
+                    <img src="kirks photo 5.jpg" class="rounded-2xl h-80 w-full object-cover shadow-2xl" alt="Belt ceremony celebration">
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule -->
+        <section id="schedule" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <h2 class="text-3xl font-black uppercase mb-12 tracking-tight text-center text-red-600 underline decoration-slate-200 underline-offset-8">Class Schedule</h2>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs font-black uppercase tracking-widest">
+                                <th class="px-6 py-4">Day</th>
+                                <th class="px-6 py-4">Time</th>
+                                <th class="px-6 py-4">Class</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-slate-100">
+                                <td class="px-6 py-4 font-bold">Monday</td>
+                                <td class="px-6 py-4">5:30 PM – 6:15 PM</td>
+                                <td class="px-6 py-4">Little Dragons (Ages 4–7)</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-6 py-4 font-bold">Monday</td>
+                                <td class="px-6 py-4">6:30 PM – 7:30 PM</td>
+                                <td class="px-6 py-4">Youth &amp; Adult (All Levels)</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-6 py-4 font-bold">Wednesday</td>
+                                <td class="px-6 py-4">5:30 PM – 6:15 PM</td>
+                                <td class="px-6 py-4">Little Dragons (Ages 4–7)</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-6 py-4 font-bold">Wednesday</td>
+                                <td class="px-6 py-4">6:30 PM – 7:30 PM</td>
+                                <td class="px-6 py-4">Youth &amp; Adult (All Levels)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-bold">Saturday</td>
+                                <td class="px-6 py-4">10:00 AM – 11:00 AM</td>
+                                <td class="px-6 py-4">Open Training (All Ages)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center text-slate-400 text-sm mt-4 italic">Schedule is subject to change. Contact us to confirm times.</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-3xl text-center">
+                <h2 class="text-3xl font-black uppercase mb-8 tracking-tight text-red-600 underline decoration-slate-200 underline-offset-8">Get in Touch</h2>
+                <p class="text-lg text-slate-500 leading-relaxed mb-10">
+                    Ready to start your martial arts journey? Have questions about our classes? Reach out — we would love to hear from you.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-6 mb-10">
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                        <p class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Location</p>
+                        <p class="text-lg font-bold">36 St Catharine St</p>
+                        <p class="text-slate-500">St. Thomas, ON</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                        <p class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Contact</p>
+                        <a href="mailto:kirkselitekarate@gmail.com" class="text-lg font-bold text-red-600 hover:underline break-all">kirkselitekarate@gmail.com</a>
+                    </div>
+                </div>
+                <a href="mailto:kirkselitekarate@gmail.com?subject=Interested%20in%20Classes" class="bg-red-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-all inline-block shadow-2xl">
+                    Email Us to Enrol
+                </a>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section id="find-us" class="py-24 bg-slate-50">
             <div class="container mx-auto px-4 max-w-5xl text-center">
-                <h3 class="text-4xl font-black uppercase mb-4">Find Us</h3>
+                <h2 class="text-4xl font-black uppercase mb-4">Find Us</h2>
                 <p class="text-xl font-bold mb-10">36 St Catharine St, St. Thomas, ON</p>
-                <div class="h-96 bg-slate-100 rounded-[3rem] overflow-hidden shadow-inner border-8 border-slate-50">
-                    <iframe width="100%" height="100%" frameborder="0" src="https://maps.google.com/maps?q=36%20St%20Catharine%20St,%20St.%20Thomas,%20ON&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                <div class="h-96 bg-slate-100 rounded-[3rem] overflow-hidden shadow-inner border-8 border-white">
+                    <iframe title="Kirk's Elite Karate Club location on Google Maps" width="100%" height="100%" frameborder="0" src="https://maps.google.com/maps?q=36%20St%20Catharine%20St,%20St.%20Thomas,%20ON&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-black text-slate-700 py-16 text-center text-[10px] font-bold uppercase tracking-[0.6em]">
-        Kirk's Elite Karate © 2026 | St. Thomas, Ontario
+    <footer class="bg-black text-slate-600 py-12 text-center">
+        <p class="text-[10px] font-bold uppercase tracking-[0.6em] mb-3">
+            Kirk's Elite Karate &copy; 2026 | St. Thomas, Ontario
+        </p>
+        <p class="text-[9px] uppercase tracking-[0.3em] text-slate-700">
+            Built by <a href="https://twobirds-kramerica.github.io/two-birds-innovation/" class="hover:text-slate-400 transition">Two Birds Innovation</a>
+        </p>
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Mobile menu toggle
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+            });
+            menu.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.add('hidden');
+                });
+            });
+        }
     </script>
 </body>
 </html>
