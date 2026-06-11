@@ -24,7 +24,7 @@ collections:
           
           # Our Story Section
           - {label: "About Section Heading", name: "about_heading", widget: "string", default: "Our Story"}
-          - {label: "About Section Text", name: "about_text", widget: "markdown", default: "At Kirk's Elite Karate Club, we specialize in Shorin-ryu Jiu-Jitsu..."}
+          - {label: "About Section Text", name: "about_text", widget: "markdown", default: "At Kirk's Elite Karate Club, we specialise in Shorin-ryu Jiu-Jitsu..."}
           
           # Dojo Floor Gallery (Matches the new 6-slot layout)
           - label: "Dojo Floor Images"
