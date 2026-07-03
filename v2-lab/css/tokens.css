@@ -1,0 +1,168 @@
+/* ============================================================================
+   Kirk's Elite Karate Club v2 Design Tokens: "Black Belt" theme
+   ----------------------------------------------------------------------------
+   Identity: disciplined, energetic, family-welcoming. Charcoal gi black,
+   dojo red, warm rice-paper light surfaces, belt-gold detail accents.
+   Deliberately distinct from every other Two Birds product (DCC = Trust Blue
+   serif; this = athletic condensed sans on warm neutrals with red).
+
+   Fonts: Oswald (display, self-hosted variable, SIL OFL, fonts/oswald/)
+        + Inter (body, reuses the repo's existing self-hosted variable font).
+
+   --------------------------------------------------------------------------
+   VERIFIED WCAG 2.2 AA CONTRAST (computed 2026-07-03)
+   --------------------------------------------------------------------------
+   LIGHT THEME
+     text        #191D23 on bg      #F7F4EE  -> 14.6:1  (AAA)
+     text        #191D23 on surface #FFFFFF  -> 16.0:1  (AAA)
+     text-muted  #4A5361 on bg      #F7F4EE  ->  7.2:1  (AAA)
+     red text    #B91C1C on white            ->  6.5:1  (AA+)
+     red text    #B91C1C on bg #F7F4EE       ->  5.9:1  (AA+)
+     white       on button #B91C1C           ->  6.5:1  (AA+)
+     gold text   #8F4407 on bg #F7F4EE       ->  6.6:1  (AA+)
+     white       on dark section #14181D     -> 17.0:1  (AAA)
+   DARK THEME
+     text        #E9EDF2 on bg      #14181D  -> 14.3:1  (AAA)
+     text        #E9EDF2 on surface #1E242C  -> 12.4:1  (AAA)
+     text-muted  #A8B2BE on surface #1E242C  ->  7.2:1  (AAA)
+     red link    #F87171 on bg #14181D       ->  6.4:1  (AA+)
+     white       on button #B91C1C           ->  6.5:1  (AA+)
+     gold        #E7B75F on bg #14181D       -> 9.6:1   (AAA)
+   Per DESIGN.md section 2: no gradients, no text shadows, no animated
+   colour transitions. Motion is transform/opacity only.
+   ========================================================================== */
+
+/* --- Self-hosted fonts (paths relative to this file) ---------------------- */
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/oswald/Oswald-Variable.woff2') format('woff2-variations'),
+       url('../fonts/oswald/Oswald-Variable.woff2') format('woff2');
+  font-weight: 200 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../../fonts/inter/InterVariable.woff2') format('woff2-variations'),
+       url('../../fonts/inter/InterVariable.woff2') format('woff2');
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+
+  /* --- Surfaces ------------------------------------------------------------ */
+  --color-bg:            #F7F4EE;  /* warm rice-paper, not clinical white */
+  --color-surface:       #FFFFFF;  /* cards */
+  --color-surface-warm:  #EFEAE0;  /* alternating band, tinted fills */
+  --color-ink-band:      #14181D;  /* dark gallery / footer band (both themes) */
+  --color-ink-band-soft: #1E242C;
+
+  /* --- Brand --------------------------------------------------------------- */
+  --color-red:           #DC2626;  /* decorative accent only (rules, stripes) */
+  --color-red-text:      #B91C1C;  /* red as TEXT on light: 6.5:1 on white */
+  --color-red-btn:       #B91C1C;  /* button fill, white text = 6.5:1 */
+  --color-red-btn-hover: #991B1B;
+  --color-gold:          #B45309;  /* belt-gold decorative */
+  --color-gold-text:     #8F4407;  /* gold as TEXT on light: 6.6:1 on bg */
+
+  /* --- Text ---------------------------------------------------------------- */
+  --color-text:          #191D23;
+  --color-text-muted:    #4A5361;  /* meta only, 7.2:1 on bg */
+  --color-text-inverse:  #F7F4EE;
+  --color-text-on-ink:   #E9EDF2;  /* body text inside dark bands */
+  --color-text-on-ink-muted: #A8B2BE;
+  --color-link:          #B91C1C;
+  --color-link-on-ink:   #F87171;  /* red links inside dark bands: 6.4:1 */
+
+  /* --- Structure ------------------------------------------------------------ */
+  --color-border:        #DDD6C8;
+  --color-border-strong: #B9B0A0;
+  --color-border-on-ink: #333B46;
+
+  /* --- Typography ------------------------------------------------------------ */
+  --font-display: 'Oswald', 'Arial Narrow', 'Segoe UI', sans-serif;
+  --font-body:    'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+
+  --size-display:  clamp(3.4rem, 9vw, 6.75rem);   /* hero */
+  --size-h2:       clamp(2rem, 3.4vw, 2.75rem);
+  --size-h3:       1.5rem;
+  --size-lead:     clamp(1.15rem, 1.2vw + 0.9rem, 1.35rem);
+  --size-body:     1.125rem;                       /* 18px floor, DESIGN.md */
+  --size-meta:     0.9375rem;
+  --size-label:    0.8125rem;
+
+  --track-label:   0.18em;
+  --track-display: 0.01em;
+  --leading-display: 0.95;
+  --leading-body:  1.7;
+
+  /* --- Spacing (4px base) ----------------------------------------------------- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-24: 96px;
+
+  /* --- Radius / shadow --------------------------------------------------------- */
+  --radius-sm: 4px; --radius-md: 10px; --radius-lg: 16px; --radius-pill: 999px;
+  --shadow-sm: 0 1px 4px rgba(20, 24, 29, 0.08);
+  --shadow-md: 0 4px 16px rgba(20, 24, 29, 0.10);
+  --shadow-lg: 0 10px 34px rgba(20, 24, 29, 0.16);
+
+  /* --- Motion: transform/opacity only (colour animation is banned) ------------- */
+  --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --motion-fast: 140ms;
+  --motion-med:  240ms;
+
+  /* --- Focus ring (WCAG 2.2) ----------------------------------------------------- */
+  --focus-ring: 3px solid #8F4407;
+  --focus-offset: 3px;
+
+  /* --- Layout ----------------------------------------------------------------- */
+  --container-max: 1160px;
+  --tap-min: 44px;
+  --nav-height: 76px;
+}
+
+/* ============================================================================
+   DARK THEME: html[data-theme="dark"], with system preference as the default
+   via js/main.js. Every pair 4.5:1 or better (see header table).
+   ========================================================================== */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg:            #14181D;
+  --color-surface:       #1E242C;
+  --color-surface-warm:  #232A33;
+  --color-ink-band:      #0D1014;
+  --color-ink-band-soft: #171C22;
+
+  --color-red-text:      #F87171;
+  --color-gold:          #E7B75F;
+  --color-gold-text:     #E7B75F;
+
+  --color-text:          #E9EDF2;
+  --color-text-muted:    #A8B2BE;
+  --color-text-inverse:  #14181D;
+  --color-text-on-ink:   #E9EDF2;
+  --color-text-on-ink-muted: #A8B2BE;
+  --color-link:          #F87171;
+  --color-link-on-ink:   #F87171;
+
+  --color-border:        #333B46;
+  --color-border-strong: #4A5563;
+  --color-border-on-ink: #333B46;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 34px rgba(0, 0, 0, 0.6);
+
+  --focus-ring: 3px solid #E7B75F;
+}
+
+/* Button colours are theme-independent: white on #B91C1C is 6.5:1 anywhere. */
+:root, html[data-theme="dark"] {
+  --color-btn-bg:    var(--color-red-btn);
+  --color-btn-text:  #FFFFFF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-fast: 0ms; --motion-med: 0ms; }
+}

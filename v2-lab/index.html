@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirk's Elite Karate Club | Shorin-ryu Jiu-Jitsu in St. Thomas, ON</title>
+    <meta name="description" content="Shorin-ryu Jiu-Jitsu for kids, teens, and adults in St. Thomas, Ontario. Beginners welcome. Building strength through discipline and community through respect.">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Apply saved or system theme before first paint (no flash)
+        (function () {
+            var saved = null;
+            try { saved = localStorage.getItem('kekc-theme'); } catch (e) {}
+            var dark = saved ? saved === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (dark) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="../kirks%20photo%2024.jpg" alt="Kirk's Elite Karate Club logo">
+                <span class="nav-wordmark">
+                    <span class="wm-top">Kirk's Elite</span>
+                    <span class="wm-main">Karate Club</span>
+                </span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">Our Story</a>
+                <a href="#classes">Classes</a>
+                <a href="#gallery">Dojo Floor</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#contact">Contact</a>
+                <a href="#find-us">Find Us</a>
+                <a href="#contact" class="btn btn-primary btn-outline--sm nav-cta">Book a Free Class</a>
+            </div>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+                    <svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.364-6.364l-1.06 1.06M6.697 17.303l-1.061 1.061m12.728 0l-1.06-1.061M6.697 6.697L5.636 5.636M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+                </button>
+                <button type="button" class="menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#about">Our Story</a>
+            <a href="#classes">Classes</a>
+            <a href="#gallery">Dojo Floor</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#contact">Contact</a>
+            <a href="#find-us">Find Us</a>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Hero -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container hero-grid">
+                <div>
+                    <div class="hero-badges">
+                        <span class="badge badge-red">Beginners Welcome</span>
+                        <span class="badge badge-ink">Adults &amp; Kids 4+</span>
+                    </div>
+                    <span class="type-label hero-kicker">Shorin-ryu Jiu-Jitsu &middot; St. Thomas, Ontario</span>
+                    <h1 id="hero-heading" class="type-display">
+                        <span class="sr-only">Kirk's Elite Karate Club: Shorin-ryu Jiu-Jitsu in St. Thomas, Ontario. </span>
+                        Modern<br><span class="accent">Tradition.</span>
+                    </h1>
+                    <p class="lead">Traditional karate in St. Thomas, Ontario. Build real strength, and earn your place in a club that trains together.</p>
+                    <a href="#contact" class="btn btn-primary">Book a Free Class</a>
+                    <p class="risk-line">No experience needed. No commitment. Your first class is free.</p>
+                </div>
+                <figure class="hero-figure">
+                    <span class="hero-frame">
+                        <img src="../kirks%20photo%2022.jpg" alt="Sensei Trevor Kirk standing on the dojo mats in front of the club mural" width="420" height="560">
+                    </span>
+                    <figcaption>Sensei Trevor Kirk, founder of Kirk's Elite Karate Club</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Trust strip -->
+        <section class="trust-strip" aria-label="Club at a glance">
+            <div class="container">
+                <ul>
+                    <li><span class="t-big">Shorin-ryu</span><span class="t-small">Traditional discipline</span></li>
+                    <li><span class="t-big">Ages 4+</span><span class="t-small">Kids, teens, and adults</span></li>
+                    <li><span class="t-big">First Class Free</span><span class="t-small">No commitment</span></li>
+                    <li><span class="t-big">St. Thomas, ON</span><span class="t-small">36 St Catharine St</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section id="about" class="story" aria-labelledby="about-heading">
+            <div class="container story-grid">
+                <figure class="story-figure">
+                    <img src="../kirks%20photo%201.jpg" alt="Students and instructors of Kirk's Elite Karate Club gathered on the mats in front of the club mural" loading="lazy">
+                    <figcaption>The club trains together: kids, teens, and adults on the same floor.</figcaption>
+                </figure>
+                <div>
+                    <div class="section-head">
+                        <span class="type-label">Our Story</span>
+                        <h2 id="about-heading" class="type-h2">A Dojo Built on Respect</h2>
+                    </div>
+                    <blockquote>
+                        <p>"At Kirk's Elite Karate Club, we specialise in Shorin-ryu Jiu-Jitsu, honouring traditional martial arts while adapting to the modern world."</p>
+                    </blockquote>
+                    <p class="muted">Founded by Sensei Trevor Kirk, our dojo is a place where students of all ages and abilities learn discipline, respect, and self-defence. Whether you are four years old taking your first stance or an adult looking for a new challenge, you belong here.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classes -->
+        <section id="classes" class="classes" aria-labelledby="classes-heading">
+            <div class="container">
+                <div class="section-head section-head--centred">
+                    <span class="type-label">Programs</span>
+                    <h2 id="classes-heading" class="type-h2">Our Classes</h2>
+                </div>
+                <div class="class-grid">
+                    <article class="class-card">
+                        <div class="belt belt--white"></div>
+                        <div class="class-card-body">
+                            <h3 class="type-h3">Little Dragons</h3>
+                            <span class="type-label ages">Ages 4&ndash;7</span>
+                            <p>Fun, structured classes where young kids build coordination and confidence and pick up the basics of respect and listening.</p>
+                            <a href="#contact" class="btn btn-outline btn-outline--sm">Try this class</a>
+                        </div>
+                    </article>
+                    <article class="class-card">
+                        <div class="belt belt--red"></div>
+                        <div class="class-card-body">
+                            <h3 class="type-h3">Youth Program</h3>
+                            <span class="type-label ages">Ages 8&ndash;15</span>
+                            <p>Technique-focused training with belt progression. Students build discipline and fitness, and learn self-defence that actually works.</p>
+                            <a href="#contact" class="btn btn-outline btn-outline--sm">Try this class</a>
+                        </div>
+                    </article>
+                    <article class="class-card">
+                        <div class="belt belt--black"></div>
+                        <div class="class-card-body">
+                            <h3 class="type-h3">Adult Karate</h3>
+                            <span class="type-label ages">Ages 16+</span>
+                            <p>Traditional Shorin-ryu training for all levels. Build strength, learn self-defence that works, and train alongside people who push you to keep going.</p>
+                            <a href="#contact" class="btn btn-outline btn-outline--sm">Try this class</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dojo Floor / Gallery -->
+        <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
+            <div class="container">
+                <div class="section-head section-head--centred">
+                    <span class="type-label">Real Students, Real Training</span>
+                    <h2 id="gallery-heading" class="type-h2">The Dojo Floor</h2>
+                </div>
+                <div class="gallery-grid">
+                    <figure>
+                        <img src="../kirks%20photo%2026.jpg" alt="Two students shaking hands on the mats while classmates look on" loading="lazy">
+                        <figcaption>Respect before and after every round</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../kirks%20photo%2025.jpg" alt="Two adult students practising a partner drill on the dojo mats" loading="lazy">
+                        <figcaption>Partner drills, all levels</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../kirks%20photo%2021.jpg" alt="Students practising a technique in front of the club mural" loading="lazy">
+                        <figcaption>Technique work on the floor</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../kirks%20photo%2023.jpg" alt="Kirk's Elite Karate Club branding" loading="lazy">
+                        <figcaption>The club colours</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../kirks%20photo%203.jpg" alt="Students warming up during a training session at the dojo" loading="lazy">
+                        <figcaption>Training session at the dojo</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../kirks%20photo%205.jpg" alt="Instructor demonstrating a self-defence technique with a student" loading="lazy">
+                        <figcaption>Self-defence demonstration</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule -->
+        <section id="schedule" class="schedule" aria-labelledby="schedule-heading">
+            <div class="container">
+                <div class="section-head section-head--centred">
+                    <span class="type-label">Weekly Times</span>
+                    <h2 id="schedule-heading" class="type-h2">Class Schedule</h2>
+                </div>
+                <div class="schedule-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Day</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Class</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="day">Monday</td>
+                                <td class="time">5:30 PM &ndash; 6:15 PM</td>
+                                <td class="class-name">Little Dragons (Ages 4&ndash;7) <a href="#contact" class="book-link">Book free &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="day">Monday</td>
+                                <td class="time">6:30 PM &ndash; 7:30 PM</td>
+                                <td class="class-name">Youth &amp; Adult (All Levels) <a href="#contact" class="book-link">Book free &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="day">Wednesday</td>
+                                <td class="time">5:30 PM &ndash; 6:15 PM</td>
+                                <td class="class-name">Little Dragons (Ages 4&ndash;7) <a href="#contact" class="book-link">Book free &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="day">Wednesday</td>
+                                <td class="time">6:30 PM &ndash; 7:30 PM</td>
+                                <td class="class-name">Youth &amp; Adult (All Levels) <a href="#contact" class="book-link">Book free &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="day">Saturday</td>
+                                <td class="time">10:00 AM &ndash; 11:00 AM</td>
+                                <td class="class-name">Open Training (All Ages) <a href="#contact" class="book-link">Book free &rarr;</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="schedule-note">Schedule is subject to change. Contact us to confirm times.</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="section-head section-head--centred">
+                    <span class="type-label">Get in Touch</span>
+                    <h2 id="contact-heading" class="type-h2">Your First Class Is Free</h2>
+                </div>
+                <p class="lead">Thinking about trying a class, or have a question about times and ages? Get in touch. We read and answer every message.</p>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <span class="type-label">Location</span>
+                        <p class="big">36 St Catharine St</p>
+                        <p class="sub">St. Thomas, ON</p>
+                    </div>
+                    <div class="contact-card">
+                        <span class="type-label">Email</span>
+                        <a class="big" href="mailto:kirkselitekarate@gmail.com">kirkselitekarate@gmail.com</a>
+                        <p class="sub">We answer every message</p>
+                    </div>
+                </div>
+                <a href="mailto:kirkselitekarate@gmail.com?subject=Book%20a%20Free%20Class" class="btn btn-primary">Book a Free Class</a>
+                <p class="risk-line">No experience needed. No commitment. Your first class is free.</p>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section id="find-us" class="map" aria-labelledby="map-heading">
+            <div class="container">
+                <div class="section-head section-head--centred">
+                    <span class="type-label">Visit the Dojo</span>
+                    <h2 id="map-heading" class="type-h2">Find Us</h2>
+                </div>
+                <p class="map-address">36 St Catharine St, St. Thomas, ON</p>
+                <div class="map-frame">
+                    <iframe title="Kirk's Elite Karate Club location on Google Maps" loading="lazy" src="https://maps.google.com/maps?q=36%20St%20Catharine%20St,%20St.%20Thomas,%20ON&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span class="f-brand">Kirk's Elite Karate Club</span>
+            <p>&copy; 2026 &middot; 36 St Catharine St, St. Thomas, Ontario</p>
+            <p class="f-links">
+                Built by <a href="https://twobirds-kramerica.github.io/two-birds-innovation/">Two Birds Innovation</a>
+                &nbsp;&middot;&nbsp;
+                <a href="../privacy.html">Privacy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
