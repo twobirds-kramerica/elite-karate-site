@@ -133,10 +133,12 @@ a { color: var(--color-link); }
 .nav-brand {
   display: flex; align-items: center; gap: var(--space-3);
   text-decoration: none; padding-block: var(--space-2);
+  flex: 0 0 auto;
 }
 .nav-brand img {
-  width: 48px; height: 48px; border-radius: 50%;
+  width: 58px; height: 58px; border-radius: 50%;
   border: 2px solid var(--color-red); object-fit: cover;
+  background: #fff;
 }
 .nav-wordmark { line-height: 1.05; }
 .nav-wordmark .wm-top {
@@ -144,19 +146,20 @@ a { color: var(--color-link); }
   font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
   color: #F87171;
 }
+.nav-wordmark .wm-top { white-space: nowrap; }
 .nav-wordmark .wm-main {
   display: block; font-family: var(--font-display); font-weight: 600;
   font-size: 1.65rem; text-transform: uppercase; letter-spacing: 0.04em;
-  color: #FFFFFF;
+  color: #FFFFFF; white-space: nowrap;
 }
 .nav-links { display: none; }
 .nav-links a {
   white-space: nowrap;
   color: var(--color-text-on-ink);
   text-decoration: none;
-  font-weight: 700; font-size: 0.875rem;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 12px 10px;
+  font-weight: 700; font-size: 0.8125rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 12px 8px;
   border-bottom: 3px solid transparent;
 }
 .nav-links a:hover { border-bottom-color: var(--color-red); }
@@ -197,14 +200,22 @@ html:not([data-theme="dark"]) .icon-sun { display: none; }
 .hero-grid { display: grid; gap: var(--space-12); align-items: center; }
 
 .hero-badges { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-8); }
+/* Non-clickable status labels, deliberately styled as tags (square corners,
+   outline, leading dot) so they never read as the pill "Book a Free Class" CTA. */
 .badge {
-  display: inline-flex; align-items: center;
-  padding: 8px 18px; border-radius: var(--radius-pill);
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 12px; border-radius: var(--radius-sm);
   font-weight: 800; font-size: var(--size-label);
   letter-spacing: var(--track-label); text-transform: uppercase;
+  background: transparent; border: 1.5px solid var(--color-border-strong);
+  color: var(--color-text-muted);
 }
-.badge-red { background: var(--color-red-btn); color: #fff; }
-.badge-ink { background: var(--color-ink-band); color: var(--color-text-on-ink); }
+.badge::before {
+  content: ""; flex: none; width: 7px; height: 7px;
+  border-radius: 50%; background: currentColor;
+}
+.badge-red { color: var(--color-red-text); border-color: var(--color-red-text); }
+.badge-ink { color: var(--color-text); border-color: var(--color-border-strong); }
 
 .hero-kicker { color: var(--color-red-text); margin-bottom: var(--space-3); display: block; }
 .hero h1 { margin-bottom: var(--space-6); }
@@ -415,13 +426,96 @@ html[data-theme="dark"] .belt--black { background: #000000; border-bottom: 1px s
   .story-grid { grid-template-columns: 0.85fr 1.15fr; }
 }
 
-@media (min-width: 1024px) {
+/* Horizontal nav needs more room now that Sensei + Training are in the bar;
+   below this width the hamburger menu is used instead so the wordmark and
+   links never collide. */
+@media (min-width: 1180px) {
   .nav-links { display: flex; align-items: center; gap: var(--space-2); }
   .menu-btn { display: none; }
+}
+
+@media (min-width: 1024px) {
   .class-grid { grid-template-columns: repeat(3, 1fr); }
   .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   .trust-strip ul { grid-template-columns: repeat(4, 1fr); }
   .trust-strip li { border-inline-end: 1px solid var(--color-border-on-ink); }
   .trust-strip li:nth-child(even) { border-inline-end: 1px solid var(--color-border-on-ink); }
   .trust-strip li:last-child { border-inline-end: 0; }
+}
+
+/* --- Meet Your Sensei -------------------------------------------------------- */
+.sensei { padding-block: var(--space-24); background: var(--color-surface-warm); }
+.sensei-grid { display: grid; gap: var(--space-12); align-items: center; }
+.sensei-figure { max-width: 420px; margin-inline: auto; width: 100%; }
+.sensei-frame { position: relative; display: block; }
+.sensei-frame::before {
+  content: ""; position: absolute; inset: -16px 16px 16px -16px;
+  background: var(--color-red); border-radius: var(--radius-lg); z-index: 0;
+}
+.sensei-frame img {
+  position: relative; z-index: 1; width: 100%;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  aspect-ratio: 3 / 4; object-fit: cover;
+}
+.sensei .lead { color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.sensei p.muted { margin-bottom: var(--space-4); }
+
+/* --- Training: kata + belt progression --------------------------------------- */
+.training { padding-block: var(--space-24); }
+.training-block { margin-top: var(--space-16); }
+.training-block:first-of-type { margin-top: 0; }
+.training-block > .type-h3 { margin-bottom: var(--space-3); }
+.training-block > p { color: var(--color-text-muted); max-width: 48rem; margin-bottom: var(--space-8); }
+
+.kata-grid { display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
+.kata-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.video-soon {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-2); aspect-ratio: 16 / 9;
+  background: var(--color-ink-band); color: var(--color-text-on-ink); text-align: center;
+}
+.video-soon svg { width: 42px; height: 42px; color: var(--color-link-on-ink); }
+.video-soon span {
+  font-family: var(--font-body); font-weight: 800; font-size: var(--size-label);
+  letter-spacing: var(--track-label); text-transform: uppercase;
+}
+.video-soon--wide {
+  max-width: 640px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+}
+.kata-card figcaption {
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.25rem;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+
+.belt-ladder {
+  list-style: none; display: grid; gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); margin-bottom: var(--space-6);
+}
+.belt-ladder li {
+  display: flex; align-items: center; gap: var(--space-3);
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); padding: var(--space-3) var(--space-4);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.05rem;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.belt-chip {
+  flex: none; width: 44px; height: 14px; border-radius: 3px;
+  border: 1px solid var(--color-border-strong);
+}
+
+.belt-steps { margin: 0 0 var(--space-8) var(--space-6); color: var(--color-text-muted); }
+.belt-steps li { margin-bottom: var(--space-2); padding-left: var(--space-2); }
+
+@media (min-width: 640px) {
+  .kata-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {
+  .sensei-grid { grid-template-columns: 0.85fr 1.15fr; }
+}
+@media (min-width: 1024px) {
+  .kata-grid { grid-template-columns: repeat(3, 1fr); }
 }
