@@ -7,6 +7,11 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Pinned to the exact version resolved by ^3.0.0 as of 2026-07-16 (hal-stack/docs/codebase-hardening-audit-2026-07-16.md,
+       elite-karate-site, Medium) — a floating range let a compromised/yanked unpkg build execute in the CMS admin
+       context, which holds a git-gateway auth token. Bump this pin deliberately when upgrading Decap. -->
+  <script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"
+    integrity="sha384-K+E/B3QG3FJrtRXoyUjME4ilx71pYGyrvAVxYvd/p0zCPuXsc3eoEuSzUW3Ke63V"
+    crossorigin="anonymous"></script>
 </body>
 </html>
